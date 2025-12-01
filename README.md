@@ -1,8 +1,4 @@
-<h1 align="center">Hack36</h1>
-<p align="center">
-</p>
-
-<a href="https://hack36.com"> <img src="https://i.postimg.cc/RFFWF4vg/built-at-hack.jpg" height=24px> </a>
+MENTAL HEALTH
 
 ## Introduction:
   As we all know, the health status of many is getting worst due to work stress and anxiety. Depression has become the biggest problem for people. Most of the youth responsible for the growth of a country are crippled in the chains of depression and anxiety, thus slowing down developmental activities. Sadly, the problem is suffered by many yet not discussed openly. So here we the team "Ideavengers" bring a caretaker "CARESS" for all of them who suffer from the same but hesitate to tell.
