@@ -1,0 +1,16 @@
+include ':app'
+
+def localProperties = new java.util.Properties()
+def localPropertiesFile = new java.io.File(settingsDir.parentFile, "local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withInputStream { stream ->
+        localProperties.load(stream)
+    }
+}
+
+def flutterSdkPath = localProperties.getProperty('flutter.sdk')
+if (flutterSdkPath == null) {
+    throw new org.gradle.api.GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+apply from: "$flutterSdkPath/packages/flutter_tools/gradle/flutter.gradle"
