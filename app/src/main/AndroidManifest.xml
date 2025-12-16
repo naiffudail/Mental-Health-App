@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MentalysApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.music.MusicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.article.AllFoodsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.article.AllArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.about.TermOfServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.about.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.about.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ui.clinic.ClinicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.AuthEmailSentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.specialist.SpecialistDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.specialist.SpecialistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.payment.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.youtube.PlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfileDetail"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.AuthResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.mental.test.MentalTestResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.AuthRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.AuthLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.TestGemini"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.mental.test.quiz.MentalTestQuizTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.mental.test.handwriting.MentalTestHandwritingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.mental.test.voice.MentalTestVoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.mental.test.MentalTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.article.ArticleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+        <!-- suppress AndroidDomInspection -->
+        <service
+            android:name="com.google.android.gms.metadata.ModuleDependencies"
+            android:enabled="false"
+            android:exported="false"
+            tools:ignore="MissingClass">
+            <intent-filter>
+                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+            </intent-filter>
+
+            <meta-data
+                android:name="photopicker_activity:0:required"
+                android:value="" />
+        </service>
+    </application>
+
+</manifest>
