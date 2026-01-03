@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/signup"
         android:textAllCaps="false"
         android:textColor="#BED32A"
         android:textSize="48sp"
@@ -32,6 +32,7 @@
         android:backgroundTint="#BED32A"
         android:ems="10"
         android:hint="Enter Email"
+        android:autofillHints="emailAddress"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +47,7 @@
         android:backgroundTint="#BDD22A"
         android:ems="10"
         android:hint="Password"
+        android:autofillHints="password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,13 +57,14 @@
         android:id="@+id/button4"
         android:layout_width="168dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="#BED32A"
-        android:text="Sign Up"
+        android:text="@string/signup"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="533dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextText1"
@@ -71,9 +74,11 @@
         android:backgroundTint="#BDD22A"
         android:ems="10"
         android:hint="Full Name"
+        android:autofillHints="name"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/editTextPhone1"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextPhone1"
@@ -83,8 +88,10 @@
         android:backgroundTint="#BDD22A"
         android:ems="10"
         android:hint="Phone Number"
+        android:autofillHints="phone"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

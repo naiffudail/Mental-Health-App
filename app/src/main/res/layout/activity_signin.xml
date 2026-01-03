@@ -33,6 +33,7 @@
         android:ems="10"
         android:hint="@string/Email_hint"
         android:inputType="textEmailAddress"
+        android:autofillHints="emailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -47,6 +48,7 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:autofillHints="password"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -56,13 +58,14 @@
         android:id="@+id/button5"
         android:layout_width="168dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="128dp"
         android:backgroundTint="@color/btncolor"
         android:text="@string/signin"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="486dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -70,11 +73,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
         android:layout_marginBottom="53dp"
-        android:background="#BDD22A"
-        android:backgroundTint="#D3FEDD"
         android:text="Forgot Password?"
         app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
-        tools:layout_editor_absoluteX="212dp" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
