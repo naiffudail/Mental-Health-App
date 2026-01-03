@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Health app</string>
+    <string name="signin">Sign In</string>
+    <string name="Email_hint">Enter Email</string>
+    <string name="password">Password</string>
+    <string name="h_text">How Are You Feeling Today!</string>
+    <string name="h_happy">Happy</string>
+    <string name="h_clam">Calm</string>
+    <string name="h_angry">Angry</string>
+    <string name="h_ses">Sessions</string>
+    <string name="h_boxtext">In This Meeting Discuss About Mental Health.</string>
+    <string name="h_Reschedule">Reschedule</string>
+    <string name="h_Join_Now">Join Now</string>
+    <string name="h_Good_Morning">Good Morning!</string>
+
+</resources>
