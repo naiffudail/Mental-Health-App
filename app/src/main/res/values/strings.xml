@@ -14,5 +14,11 @@
     <string name="h_Reschedule">Reschedule</string>
     <string name="h_Join_Now">Join Now</string>
     <string name="h_Good_Morning">Good Morning!</string>
+    <string name="features">Features</string>
+    <string name="my_community">My Community</string>
+    <string name="chatting">Chatting</string>
+    <string name="community_progress_update">Community Progress Update</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>
