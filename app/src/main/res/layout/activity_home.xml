@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#334671"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -138,93 +138,110 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/sessionContainer1"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="16dp"
-                    android:background="#EDF4A1">
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
 
-                    <TextView
-                        android:id="@+id/sessionDescription1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:text="@string/h_boxtext"
-                        android:textColor="#070707"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sessionContainer1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF">
 
-                    <Button
-                        android:id="@+id/rescheduleButton1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:backgroundTint="#F44336"
-                        android:text="@string/h_Reschedule"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        <TextView
+                            android:id="@+id/sessionDescription1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="@string/h_boxtext"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/joinNowTextView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:background="#ECF3A0"
-                        android:text="@string/h_Join_Now"
-                        android:textColor="#F44336"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        <Button
+                            android:id="@+id/rescheduleButton1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:backgroundTint="#334671"
+                            android:text="@string/h_Reschedule"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/joinNowTextView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="@string/h_Join_Now"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/sessionContainer2"
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="16dp"
-                    android:background="@color/h_box">
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardUseCompatPadding="true">
 
-                    <TextView
-                        android:id="@+id/sessionDescription2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:text="@string/h_boxtext"
-                        android:textColor="#070707"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sessionContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF">
 
-                    <Button
-                        android:id="@+id/rescheduleButton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:backgroundTint="@color/h_button"
-                        android:text="@string/h_Reschedule"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        <TextView
+                            android:id="@+id/sessionDescription2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="@string/h_boxtext"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/joinNowTextView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:background="#ECF3A0"
-                        android:text="@string/h_Join_Now"
-                        android:textColor="@color/h_text"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        <Button
+                            android:id="@+id/rescheduleButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:backgroundTint="#334671"
+                            android:text="@string/h_Reschedule"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/joinNowTextView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="@string/h_Join_Now"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
 
             </LinearLayout>
         </ScrollView>
