@@ -5,29 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bcolour"
-    android:backgroundTint="#757780"
+    android:backgroundTint="#96D1BD"
     tools:context=".signin">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/francois_one"
         android:text="@string/signin"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.782" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="268dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="36dp"
         android:autofillHints="emailAddress"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
@@ -35,14 +36,14 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
         android:layout_width="269dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="94dp"
+        android:layout_marginBottom="100dp"
         android:autofillHints="password"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
@@ -57,8 +58,8 @@
         android:id="@+id/button5"
         android:layout_width="198dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="128dp"
-        android:backgroundTint="#334671"
+        android:layout_marginBottom="280dp"
+        android:backgroundTint="#E97068"
         android:text="@string/signin"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,6 +74,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginBottom="53dp"
         android:text="Forgot Password?"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />

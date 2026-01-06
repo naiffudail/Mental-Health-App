@@ -5,23 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bcolour"
-    android:backgroundTint="#757780"
+    android:backgroundTint="#96D1BD"
     tools:context=".signup">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/francois_one"
         android:text="@string/signup"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextText1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -42,7 +42,7 @@
         android:id="@+id/editTextTextPassword2"
         android:layout_width="269dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:autofillHints="password"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
@@ -56,8 +56,8 @@
         android:id="@+id/button4"
         android:layout_width="198dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#334671"
+        android:layout_marginBottom="190dp"
+        android:backgroundTint="#E97068"
         android:text="@string/signup"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

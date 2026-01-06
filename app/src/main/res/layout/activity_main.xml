@@ -5,14 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bcolour"
-    android:backgroundTint="#757780"
+    android:backgroundTint="#96D1BD"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="750dp"
+        android:layout_height="670dp"
+        android:layout_marginTop="228dp"
+        android:src="@drawable/rainbow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="164dp"
         android:layout_height="152dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="200dp"
         android:src="@drawable/mindcare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -21,12 +32,15 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Your brain is a garden. Let's help it bloom."
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:layout_width="373dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/francois_one"
+        android:text="Your thoughts deserve gentle care."
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -36,11 +50,12 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="161dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="129dp"
-        android:backgroundTint="#334671"
+        android:layout_width="198dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="110dp"
+        android:backgroundTint="#E97068"
         android:text="Get Start"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
