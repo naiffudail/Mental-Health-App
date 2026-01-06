@@ -77,19 +77,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> showToast("Home clicked")
             R.id.nav_diary -> showToast("Diary clicked")
-<<<<<<< HEAD
-            R.id.nav_profile -> showToast("Profile clicked")
-            R.id.nav_community -> {
-                val intent = Intent(this, CommunityActivity::class.java)
-                startActivity(intent)
-            }
-=======
             R.id.nav_profile -> {
                 val intent = Intent(this, UpdateProfileActivity::class.java)
                 startActivity(intent)
             }
-            R.id.nav_community -> showToast("My Community clicked")
->>>>>>> 06a6107849c1a4d27a6a2770f453da69a79775f1
+            R.id.nav_community -> {
+                val intent = Intent(this, CommunityActivity::class.java)
+                startActivity(intent)
+            }
             R.id.nav_chat -> showToast("Chatting clicked")
             R.id.nav_progress -> showToast("Community Progress Update clicked")
         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bcolour"
-    android:backgroundTint="@color/main_colour"
+    android:backgroundTint="@color/material_dynamic_neutral_variant50"
     tools:context=".MainActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="164dp"
         android:layout_height="152dp"
         android:layout_marginTop="216dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/mindcare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Your brain is a garden. Let's help it bloom."
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +39,7 @@
         android:layout_width="112dp"
         android:layout_height="36dp"
         android:layout_marginTop="129dp"
-        android:backgroundTint="#EAC967"
+        android:backgroundTint="@color/material_dynamic_primary30"
         android:text="Get Start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
