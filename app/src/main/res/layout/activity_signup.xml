@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup"
-    android:background="#FEFEFE"
-    android:backgroundTint="#D4FFDE"
-    android:orientation="vertical">
+    android:background="@color/main_bcolour"
+    android:backgroundTint="@color/material_dynamic_neutral_variant50"
+    tools:context=".signup">
 
     <TextView
         android:id="@+id/textView"
