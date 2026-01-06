@@ -55,8 +55,8 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="168dp"
-        android:layout_height="45dp"
+        android:layout_width="198dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="128dp"
         android:backgroundTint="#334671"
         android:text="@string/signin"

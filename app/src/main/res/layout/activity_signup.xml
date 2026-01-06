@@ -54,15 +54,15 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="168dp"
-        android:layout_height="45dp"
+        android:layout_width="198dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="#334671"
         android:text="@string/signup"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
