@@ -13,7 +13,11 @@
         android:theme="@style/Theme.HealthApp"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".CommunityActivity"
+=======
+            android:name=".UpdateProfileActivity"
+>>>>>>> 06a6107849c1a4d27a6a2770f453da69a79775f1
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
