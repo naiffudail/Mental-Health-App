@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#96D1BD"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="174dp"
+        android:layout_height="142dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="116dp"
+        android:src="@drawable/mindcare2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/design"
+        android:layout_width="421dp"
+        android:layout_height="314dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="600dp"
+        android:rotation="-10"
+        android:src="@drawable/cartoon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/admin_card"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="15dp"
+        app:cardBackgroundColor="#ECBB5F"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/user_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <Button
+            android:id="@+id/admin_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/francois_one"
+            android:text="Admin"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/user_card"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        app:cardBackgroundColor="#F16C68"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/admin_card">
+
+        <Button
+            android:id="@+id/user_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/francois_one"
+            android:text="User"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

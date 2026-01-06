@@ -50,12 +50,13 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="198dp"
-        android:layout_height="56dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="110dp"
         android:backgroundTint="#E97068"
         android:text="Get Start"
         android:textColor="#FFFFFF"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
