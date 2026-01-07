@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/background"
     tools:context=".MusicActivity">
 
     <TextView
@@ -12,41 +12,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Let the music
-heal your soul !"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
+        android:fontFamily="@font/francois_one"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Let the music heal your soul !"
+        android:textAllCaps="true"
+        android:textColor="#58315A"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/player_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="32dp"
+        android:layout_width="311dp"
+        android:layout_height="428dp"
+        android:layout_margin="60dp"
         app:cardBackgroundColor="#333333"
         app:cardCornerRadius="16dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="457dp"
             android:padding="16dp">
 
             <ImageView
                 android:id="@+id/imageViewAlbumArt"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="262dp"
+                android:layout_height="254dp"
                 android:src="@drawable/lisn"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewSongTitle"
@@ -56,9 +56,9 @@ heal your soul !"
                 android:text="My Little Edinburgh"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/imageViewAlbumArt"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/imageViewAlbumArt" />
 
             <TextView
                 android:id="@+id/textViewArtist"
@@ -66,49 +66,49 @@ heal your soul !"
                 android:layout_height="wrap_content"
                 android:text="Piano House"
                 android:textColor="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@id/textViewSongTitle"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/textViewSongTitle" />
 
             <SeekBar
                 android:id="@+id/seekBar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/textViewArtist"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/textViewArtist" />
 
             <ImageButton
                 android:id="@+id/buttonPrevious"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_media_previous"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:layout_constraintTop_toBottomOf="@id/seekBar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:src="@android:drawable/ic_media_previous"
                 app:layout_constraintEnd_toStartOf="@+id/buttonPlay"
-                app:layout_constraintHorizontal_chainStyle="spread" />
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seekBar" />
 
             <ImageButton
                 android:id="@+id/buttonPlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_media_play"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:layout_constraintTop_toTopOf="@id/buttonPrevious"
+                android:src="@android:drawable/ic_media_play"
+                app:layout_constraintEnd_toStartOf="@id/buttonNext"
                 app:layout_constraintStart_toEndOf="@id/buttonPrevious"
-                app:layout_constraintEnd_toStartOf="@id/buttonNext" />
+                app:layout_constraintTop_toTopOf="@id/buttonPrevious" />
 
             <ImageButton
                 android:id="@+id/buttonNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_media_next"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:layout_constraintTop_toTopOf="@id/buttonPrevious"
+                android:src="@android:drawable/ic_media_next"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/buttonPlay"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/buttonPrevious" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,33 +118,24 @@ heal your soul !"
         android:id="@+id/buttonLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/smile"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="50dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@id/player_card"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDislike"
+        android:src="@drawable/music"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/buttonDislike"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:src="@drawable/angry"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toTopOf="@id/buttonLike"
-        app:layout_constraintStart_toEndOf="@id/buttonLike"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_card" />
 
     <Button
         android:id="@+id/buttonHomepage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="56dp"
         android:layout_margin="32dp"
+        android:backgroundTint="#F16C68"
         android:text="Homepage"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
