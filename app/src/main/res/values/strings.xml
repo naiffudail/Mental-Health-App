@@ -10,6 +10,11 @@
     <string name="h_happy">Happy</string>
     <string name="h_clam">Calm</string>
     <string name="h_angry">Angry</string>
+    <string name="h_sad">Sad</string>
+    <string name="h_anxious">Anxious</string>
+    <string name="h_stressed">Stressed</string>
+    <string name="h_tired">Tired</string>
+    <string name="h_neutral">Neutral</string>
     <string name="h_ses">Sessions</string>
     <string name="h_boxtext">In This Meeting Discuss About Mental Health.</string>
     <string name="h_Reschedule">Reschedule</string>
@@ -21,5 +26,4 @@
     <string name="community_progress_update">Community Progress Update</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
 </resources>

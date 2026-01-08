@@ -58,8 +58,8 @@
                         android:layout_marginEnd="43dp"
                         android:layout_marginBottom="11dp"
                         android:layout_marginStart="16dp"
-                        android:src="@drawable/smile"
-                        app:srcCompat="@drawable/smile" />
+                        android:src="@drawable/happy"
+                        app:srcCompat="@drawable/happy" />
 
                     <TextView
                         android:id="@+id/happyTextView"
@@ -82,8 +82,8 @@
                         android:layout_height="72dp"
                         android:layout_marginEnd="43dp"
                         android:layout_marginBottom="11dp"
-                        android:src="@drawable/relieved"
-                        app:srcCompat="@drawable/relieved" />
+                        android:src="@drawable/calm"
+                        app:srcCompat="@drawable/calm" />
 
                     <TextView
                         android:id="@+id/calmTextView"
