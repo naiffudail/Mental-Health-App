@@ -34,5 +34,9 @@
             android:id="@+id/nav_quotes"
             android:icon="@drawable/quote"
             android:title="@string/quote" />
+        <item
+            android:id="@+id/nav_draw"
+            android:icon="@drawable/draw"
+            android:title="@string/draw" />
     </group>
 </menu>

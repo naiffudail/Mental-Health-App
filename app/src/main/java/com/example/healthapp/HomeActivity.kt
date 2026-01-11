@@ -146,6 +146,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this, MusicActivity::class.java)
                 startActivity(intent)
             }
+            R.id.nav_draw -> {
+                val intent = Intent(this, DrawingActivity::class.java)
+                startActivity(intent)
+            }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
