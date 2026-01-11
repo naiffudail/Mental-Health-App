@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_music"
-        android:icon="@drawable/lisn"
-        android:title="Music" />
-    <item
         android:id="@+id/nav_home"
         android:icon="@drawable/home"
-        android:title="Home" />
+        android:title="@string/home" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/profile" />
     <item
         android:id="@+id/nav_diary"
         android:icon="@drawable/diary"
-        android:title="Diary" />
-    <item
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/user"
-        android:title="Profile" />
+        android:title="@string/diary" />
 
     <group android:id="@+id/features_group">
         <item
             android:id="@+id/nav_community"
-            android:icon="@drawable/user"
+            android:icon="@drawable/community"
             android:title="@string/my_community" />
         <item
             android:id="@+id/nav_chat"
-            android:icon="@drawable/home"
+            android:icon="@drawable/chat"
             android:title="@string/chatting" />
         <item
             android:id="@+id/nav_progress"
-            android:icon="@drawable/diary"
+            android:icon="@drawable/community"
             android:title="@string/community_progress_update" />
+        <item
+            android:id="@+id/nav_music"
+            android:icon="@drawable/music"
+            android:title="@string/music" />
+        <item
+            android:id="@+id/nav_quotes"
+            android:icon="@drawable/quote"
+            android:title="@string/quote" />
     </group>
 </menu>

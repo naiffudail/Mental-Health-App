@@ -1,12 +1,21 @@
 package com.example.healthapp
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import com.example.healthapp.databinding.ActivityHomeBinding
 import com.google.android.material.navigation.NavigationView
@@ -34,26 +43,65 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navView.setNavigationItemSelectedListener(this)
 
+        setupClickListeners()
+    }
 
+    private fun setupClickListeners() {
         binding.rescheduleButton1.setOnClickListener {
             showToast("Reschedule button 1 clicked")
         }
-
         binding.rescheduleButton2.setOnClickListener {
             showToast("Reschedule button 2 clicked")
         }
 
-        binding.happyImageView.setOnClickListener {
-            showToast("You\'re feeling happy!")
-        }
+        binding.happyImageView.setOnClickListener { showFeelingDialog(R.drawable.happy, "Happy", "#FFEB3B") }
+        binding.calmImageView.setOnClickListener { showFeelingDialog(R.drawable.calm, "Calm", "#81D4FA") }
+        binding.angryImageView.setOnClickListener { showFeelingDialog(R.drawable.angry, "Angry", "#EF5350") }
+        binding.sadImageView.setOnClickListener { showFeelingDialog(R.drawable.sad, "Sad", "#90CAF9") }
+        binding.anxiousImageView.setOnClickListener { showFeelingDialog(R.drawable.anxious, "Anxious", "#CE93D8") }
+        binding.stressedImageView.setOnClickListener { showFeelingDialog(R.drawable.stressed, "Stressed", "#FFAB91") }
+        binding.tiredImageView.setOnClickListener { showFeelingDialog(R.drawable.tired, "Tired", "#B0BEC5") }
+        binding.neutralImageView.setOnClickListener { showFeelingDialog(R.drawable.neutral, "Neutral", "#E0E0E0") }
+    }
 
-        binding.calmImageView.setOnClickListener {
-            showToast("You\'re feeling calm!")
-        }
+    private fun showFeelingDialog(imageResId: Int, feeling: String, colorHex: String) {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_feeling, null)
+        val container = dialogView.findViewById<LinearLayout>(R.id.dialogContainer)
+        val imageView = dialogView.findViewById<ImageView>(R.id.dialogImageView)
+        val textView = dialogView.findViewById<TextView>(R.id.dialogTextView)
 
-        binding.angryImageView.setOnClickListener {
-            showToast("You\'re feeling angry!")
-        }
+        // Set dynamic background color with rounded corners
+        val shape = GradientDrawable()
+        shape.cornerRadius = 50f
+        shape.setColor(Color.parseColor(colorHex))
+        shape.setStroke(4, Color.WHITE)
+        container.background = shape
+
+        imageView.setImageResource(imageResId)
+        textView.text = "You're feeling $feeling!"
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        
+        // Add pop-in animation
+        val animation = AnimationUtils.loadAnimation(this, R.anim.pop_in)
+        dialogView.startAnimation(animation)
+
+        dialog.show()
+
+        // Automatically dismiss the dialog after 1.2 seconds
+        dialogView.postDelayed({
+            if (dialog.isShowing) {
+                // Fade out animation before dismissing
+                dialogView.animate().alpha(0f).setDuration(300).withEndAction {
+                    dialog.dismiss()
+                }.start()
+            }
+        }, 1200)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -87,6 +135,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_chat -> showToast("Chatting clicked")
             R.id.nav_progress -> showToast("Community Progress Update clicked")
+            R.id.nav_quotes -> {
+                val intent = Intent(this, QuotesActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.nav_music -> {
+                val intent = Intent(this, MusicActivity::class.java)
+                startActivity(intent)
+            }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true

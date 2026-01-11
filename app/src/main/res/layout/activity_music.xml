@@ -121,7 +121,7 @@
         android:layout_marginStart="124dp"
         android:layout_marginTop="50dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/music"
+        android:src="@drawable/music_cartoon"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/player_card" />
