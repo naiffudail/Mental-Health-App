@@ -58,10 +58,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.calmImageView.setOnClickListener { showFeelingDialog(R.drawable.calm, "Calm", "#81D4FA") }
         binding.angryImageView.setOnClickListener { showFeelingDialog(R.drawable.angry, "Angry", "#EF5350") }
         binding.sadImageView.setOnClickListener { showFeelingDialog(R.drawable.sad, "Sad", "#90CAF9") }
-        binding.anxiousImageView.setOnClickListener { showFeelingDialog(R.drawable.anxious, "Anxious", "#CE93D8") }
+        binding.excitedImageView.setOnClickListener { showFeelingDialog(R.drawable.anxious, "Anxious", "#CE93D8") }
         binding.stressedImageView.setOnClickListener { showFeelingDialog(R.drawable.stressed, "Stressed", "#FFAB91") }
-        binding.tiredImageView.setOnClickListener { showFeelingDialog(R.drawable.tired, "Tired", "#B0BEC5") }
-        binding.neutralImageView.setOnClickListener { showFeelingDialog(R.drawable.neutral, "Neutral", "#E0E0E0") }
+        binding.worriedImageView.setOnClickListener { showFeelingDialog(R.drawable.tired, "Tired", "#B0BEC5") }
+        binding.relaxedImageView.setOnClickListener { showFeelingDialog(R.drawable.neutral, "Neutral", "#E0E0E0") }
     }
 
     private fun showFeelingDialog(imageResId: Int, feeling: String, colorHex: String) {

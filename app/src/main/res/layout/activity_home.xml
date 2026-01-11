@@ -110,7 +110,7 @@
 
                             <ImageView
                                 android:id="@+id/calmImageView"
-                                android:layout_width="77dp"
+                                android:layout_width="81dp"
                                 android:layout_height="72dp"
                                 android:contentDescription="@string/h_clam"
                                 app:srcCompat="@drawable/calm" />
@@ -134,8 +134,8 @@
 
                             <ImageView
                                 android:id="@+id/angryImageView"
-                                android:layout_width="77dp"
-                                android:layout_height="72dp"
+                                android:layout_width="76dp"
+                                android:layout_height="74dp"
                                 android:contentDescription="@string/h_angry"
                                 app:srcCompat="@drawable/angry" />
 
@@ -158,8 +158,8 @@
 
                             <ImageView
                                 android:id="@+id/sadImageView"
-                                android:layout_width="77dp"
-                                android:layout_height="72dp"
+                                android:layout_width="76dp"
+                                android:layout_height="74dp"
                                 android:contentDescription="@string/h_sad"
                                 app:srcCompat="@drawable/sad" />
 
@@ -181,18 +181,18 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/anxiousImageView"
-                                android:layout_width="77dp"
-                                android:layout_height="72dp"
+                                android:id="@+id/excitedImageView"
+                                android:layout_width="76dp"
+                                android:layout_height="74dp"
                                 android:contentDescription="@string/h_anxious"
                                 app:srcCompat="@drawable/anxious" />
 
                             <TextView
-                                android:id="@+id/anxiousTextView"
+                                android:id="@+id/excitedTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/francois_one"
-                                android:text="Anxious"
+                                android:text="Excited"
                                 android:textColor="#ECBB5F"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -206,8 +206,8 @@
 
                             <ImageView
                                 android:id="@+id/stressedImageView"
-                                android:layout_width="77dp"
-                                android:layout_height="72dp"
+                                android:layout_width="76dp"
+                                android:layout_height="74dp"
                                 android:contentDescription="@string/h_stressed"
                                 app:srcCompat="@drawable/stressed" />
 
@@ -229,18 +229,18 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/tiredImageView"
-                                android:layout_width="77dp"
-                                android:layout_height="72dp"
+                                android:id="@+id/worriedImageView"
+                                android:layout_width="76dp"
+                                android:layout_height="74dp"
                                 android:contentDescription="@string/h_tired"
                                 app:srcCompat="@drawable/tired" />
 
                             <TextView
-                                android:id="@+id/tiredTextView"
+                                android:id="@+id/worriedTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/francois_one"
-                                android:text="Tired"
+                                android:text="Worried"
                                 android:textColor="#58315A"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -252,18 +252,18 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/neutralImageView"
-                                android:layout_width="77dp"
-                                android:layout_height="72dp"
+                                android:id="@+id/relaxedImageView"
+                                android:layout_width="76dp"
+                                android:layout_height="74dp"
                                 android:contentDescription="@string/h_neutral"
                                 app:srcCompat="@drawable/neutral" />
 
                             <TextView
-                                android:id="@+id/neutralTextView"
+                                android:id="@+id/relaxedTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/francois_one"
-                                android:text="Neutral"
+                                android:text="Relaxed"
                                 android:textColor="#117B93"
                                 android:textSize="20sp" />
                         </LinearLayout>
