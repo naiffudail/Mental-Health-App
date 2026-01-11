@@ -13,12 +13,14 @@ class LoginActivity : AppCompatActivity() {
         val adminButton = findViewById<Button>(R.id.admin_button)
         adminButton.setOnClickListener {
             val intent = Intent(this, signup::class.java)
+            intent.putExtra("ROLE", "Admin")
             startActivity(intent)
         }
 
         val userButton = findViewById<Button>(R.id.user_button)
         userButton.setOnClickListener {
             val intent = Intent(this, signup::class.java)
+            intent.putExtra("ROLE", "User")
             startActivity(intent)
         }
     }

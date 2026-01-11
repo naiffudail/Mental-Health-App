@@ -23,52 +23,10 @@
         app:layout_constraintVertical_bias="0.8" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="268dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="36dp"
-        android:autofillHints="emailAddress"
-        android:backgroundTint="#E97068"
-        android:ems="10"
-        android:hint="Enter Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="269dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="60dp"
-        android:autofillHints="password"
-        android:backgroundTint="#E97068"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="198dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="190dp"
-        android:backgroundTint="#E97068"
-        android:text="@string/signup"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
         android:id="@+id/editTextText1"
         android:layout_width="269dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints="name"
         android:backgroundTint="#E97068"
         android:ems="10"
@@ -82,13 +40,66 @@
         android:id="@+id/editTextPhone1"
         android:layout_width="269dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints="phone"
         android:backgroundTint="#E97068"
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="268dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="emailAddress"
+        android:backgroundTint="#E97068"
+        android:ems="10"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="269dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="40dp"
+        android:autofillHints="password"
+        android:backgroundTint="#E97068"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="198dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#E97068"
+        android:text="@string/signup"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLoginLink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLoginLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Already have account? Login here"
+        android:textColor="#E97068"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
