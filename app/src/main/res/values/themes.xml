@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.HealthApp" parent="Base.Theme.HealthApp" />
+
+    <style name="CircleImage" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

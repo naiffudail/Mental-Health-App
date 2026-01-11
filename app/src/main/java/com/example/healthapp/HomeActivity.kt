@@ -133,7 +133,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this, CommunityActivity::class.java)
                 startActivity(intent)
             }
-            R.id.nav_chat -> showToast("Chatting clicked")
+            R.id.nav_chat -> {
+                val intent = Intent(this, ChatActivity::class.java)
+                startActivity(intent)
+            }
             R.id.nav_progress -> showToast("Community Progress Update clicked")
             R.id.nav_quotes -> {
                 val intent = Intent(this, QuotesActivity::class.java)
