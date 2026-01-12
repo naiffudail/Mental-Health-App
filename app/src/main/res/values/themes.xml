@@ -10,4 +10,13 @@
     <style name="CircleImage" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="AlphabetText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#828282</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:paddingVertical">1dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

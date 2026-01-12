@@ -70,7 +70,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val imageView = dialogView.findViewById<ImageView>(R.id.dialogImageView)
         val textView = dialogView.findViewById<TextView>(R.id.dialogTextView)
 
-        // Set dynamic background color with rounded corners
         val shape = GradientDrawable()
         shape.cornerRadius = 50f
         shape.setColor(Color.parseColor(colorHex))
@@ -87,16 +86,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         
-        // Add pop-in animation
         val animation = AnimationUtils.loadAnimation(this, R.anim.pop_in)
         dialogView.startAnimation(animation)
 
         dialog.show()
 
-        // Automatically dismiss the dialog after 1.2 seconds
         dialogView.postDelayed({
             if (dialog.isShowing) {
-                // Fade out animation before dismissing
                 dialogView.animate().alpha(0f).setDuration(300).withEndAction {
                     dialog.dismiss()
                 }.start()
@@ -126,29 +122,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> showToast("Home clicked")
             R.id.nav_diary -> showToast("Diary clicked")
             R.id.nav_profile -> {
-                val intent = Intent(this, UpdateProfileActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, UpdateProfileActivity::class.java))
             }
             R.id.nav_community -> {
-                val intent = Intent(this, CommunityActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, CommunityActivity::class.java))
             }
             R.id.nav_chat -> {
-                val intent = Intent(this, ChatActivity::class.java)
-                startActivity(intent)
+                // Reverted: Go back to direct chat
+                startActivity(Intent(this, ChatActivity::class.java))
             }
             R.id.nav_progress -> showToast("Community Progress Update clicked")
             R.id.nav_quotes -> {
-                val intent = Intent(this, QuotesActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, QuotesActivity::class.java))
             }
             R.id.nav_music -> {
-                val intent = Intent(this, MusicActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.nav_draw -> {
-                val intent = Intent(this, DrawingActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, MusicActivity::class.java))
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

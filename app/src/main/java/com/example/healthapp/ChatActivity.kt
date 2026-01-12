@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -31,13 +32,18 @@ class ChatActivity : AppCompatActivity() {
         binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.chatRecyclerView.adapter = chatAdapter
 
-        // Get current user's name and update Header
-        val userId = auth.currentUser?.uid
-        if (userId != null) {
-            database.child("Users").child(userId).child("fullName").get().addOnSuccessListener {
-                currentUserName = it.value.toString()
-                // Update the Header UI with real name
-                binding.chatUserName.text = currentUserName
+        // Get Friend Name from Intent if coming from Contacts
+        val friendName = intent.getStringExtra("FRIEND_NAME")
+        if (friendName != null) {
+            binding.chatUserName.text = friendName
+        } else {
+            // Otherwise show current user name
+            val userId = auth.currentUser?.uid
+            if (userId != null) {
+                database.child("Users").child(userId).child("fullName").get().addOnSuccessListener {
+                    currentUserName = it.value.toString()
+                    binding.chatUserName.text = currentUserName
+                }
             }
         }
 
@@ -48,7 +54,7 @@ class ChatActivity : AppCompatActivity() {
                 for (postSnapshot in snapshot.children) {
                     val message = postSnapshot.getValue(Message::class.java)
                     if (message != null) {
-                        message.messageId = postSnapshot.key // Assign key for deletion
+                        message.messageId = postSnapshot.key
                         messageList.add(message)
                     }
                 }
@@ -63,9 +69,11 @@ class ChatActivity : AppCompatActivity() {
             }
         })
 
-        // Back button functionality
-        binding.btnBack.setOnClickListener {
-            onBackPressed()
+        binding.btnBack.setOnClickListener { onBackPressed() }
+
+        // Go to Contacts List
+        binding.btnGoToContacts.setOnClickListener {
+            startActivity(Intent(this, ContactsActivity::class.java))
         }
 
         binding.btnSendChat.setOnClickListener {
@@ -81,9 +89,6 @@ class ChatActivity : AppCompatActivity() {
                 database.child("Messages").push().setValue(messageObject)
                     .addOnSuccessListener {
                         binding.messageEditText.text.clear()
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
                     }
             }
         }
