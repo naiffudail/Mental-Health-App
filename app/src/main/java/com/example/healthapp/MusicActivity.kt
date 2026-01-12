@@ -1,107 +1,63 @@
 package com.example.healthapp
 
-import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.SeekBar
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import com.example.healthapp.databinding.ActivityMusicBinding
+import com.google.android.material.navigation.NavigationView
 
-class MusicActivity : AppCompatActivity() {
+class MusicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private var mediaPlayer: MediaPlayer? = null
-    private lateinit var seekBar: SeekBar
-    private lateinit var playButton: ImageButton
-    private val handler = Handler(Looper.getMainLooper())
+    private lateinit var binding: ActivityMusicBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_music)
+        binding = ActivityMusicBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        playButton = findViewById(R.id.buttonPlay)
-        seekBar = findViewById(R.id.seekBar)
-        val homeButton = findViewById<Button>(R.id.buttonHomepage)
+        // Setup Toolbar and Drawer
+        setSupportActionBar(binding.toolbar)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
-        // Initialize MediaPlayer
-        try {
-            mediaPlayer = MediaPlayer.create(this, R.raw.music_file)
-            if (mediaPlayer == null) {
-                Toast.makeText(this, "Music file not found in res/raw", Toast.LENGTH_LONG).show()
-            } else {
-                setupSeekBar()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        binding.navView.setNavigationItemSelectedListener(this)
 
-        playButton.setOnClickListener {
-            if (mediaPlayer?.isPlaying == true) {
-                pauseMusic()
-            } else {
-                playMusic()
-            }
-        }
-
-        findViewById<ImageButton>(R.id.buttonNext).setOnClickListener {
-            restartMusic()
-        }
-
-        findViewById<ImageButton>(R.id.buttonPrevious).setOnClickListener {
-            restartMusic()
-        }
-
-        homeButton.setOnClickListener {
-            finish()
+        binding.buttonHomepage.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
-    private fun playMusic() {
-        mediaPlayer?.start()
-        playButton.setImageResource(android.R.drawable.ic_media_pause)
-        updateSeekBar()
-    }
-
-    private fun pauseMusic() {
-        mediaPlayer?.pause()
-        playButton.setImageResource(android.R.drawable.ic_media_play)
-    }
-
-    private fun restartMusic() {
-        mediaPlayer?.seekTo(0)
-        playMusic()
-    }
-
-    private fun setupSeekBar() {
-        mediaPlayer?.let {
-            seekBar.max = it.duration
-            seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                    if (fromUser) {
-                        it.seekTo(progress)
-                    }
-                }
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-            })
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_home -> startActivity(Intent(this, HomeActivity::class.java))
+            R.id.nav_diary -> Toast.makeText(this, "Diary clicked", Toast.LENGTH_SHORT).show()
+            R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
+            R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
+            R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))
+            R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))
+            R.id.nav_music -> { /* Already here */ }
+            R.id.nav_draw -> startActivity(Intent(this, DrawingActivity::class.java))
         }
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        return true
     }
 
-    private fun updateSeekBar() {
-        mediaPlayer?.let {
-            if (it.isPlaying) {
-                seekBar.progress = it.currentPosition
-                handler.postDelayed({ updateSeekBar() }, 1000)
-            }
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayer?.release()
-        mediaPlayer = null
-        handler.removeCallbacksAndMessages(null)
     }
 }

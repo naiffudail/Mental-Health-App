@@ -23,10 +23,6 @@
             android:icon="@drawable/chat"
             android:title="@string/chatting" />
         <item
-            android:id="@+id/nav_progress"
-            android:icon="@drawable/community"
-            android:title="@string/community_progress_update" />
-        <item
             android:id="@+id/nav_music"
             android:icon="@drawable/music"
             android:title="@string/music" />

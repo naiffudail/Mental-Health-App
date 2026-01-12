@@ -119,25 +119,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_home -> showToast("Home clicked")
+            R.id.nav_home -> { /* Already here */ }
             R.id.nav_diary -> showToast("Diary clicked")
-            R.id.nav_profile -> {
-                startActivity(Intent(this, UpdateProfileActivity::class.java))
-            }
-            R.id.nav_community -> {
-                startActivity(Intent(this, CommunityActivity::class.java))
-            }
-            R.id.nav_chat -> {
-                // Reverted: Go back to direct chat
-                startActivity(Intent(this, ChatActivity::class.java))
-            }
-            R.id.nav_progress -> showToast("Community Progress Update clicked")
-            R.id.nav_quotes -> {
-                startActivity(Intent(this, QuotesActivity::class.java))
-            }
-            R.id.nav_music -> {
-                startActivity(Intent(this, MusicActivity::class.java))
-            }
+            R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
+            R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
+            R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))
+            R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))
+            R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))
+            R.id.nav_draw -> startActivity(Intent(this, DrawingActivity::class.java))
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
