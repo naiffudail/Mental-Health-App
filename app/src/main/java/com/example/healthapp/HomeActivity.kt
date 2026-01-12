@@ -120,7 +120,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> { /* Already here */ }
-            R.id.nav_diary -> showToast("Diary clicked")
             R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
             R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
             R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))

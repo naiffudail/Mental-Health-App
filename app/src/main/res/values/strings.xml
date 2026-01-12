@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Health app</string>
     <string name="user_name">Millie Bobby Brown</string>
     <string name="signin">Sign In</string>
@@ -6,6 +7,9 @@
     <string name="Email_hint">Enter Email</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot Password?</string>
+
+    <!-- User -->
+    <string name="h_Good_Morning">Good Morning!</string>
     <string name="h_text">How Are You Feeling Today!</string>
     <string name="h_happy">Happy</string>
     <string name="h_clam">Calm</string>
@@ -19,17 +23,24 @@
     <string name="h_boxtext">In This Meeting Discuss About Mental Health.</string>
     <string name="h_Reschedule">Reschedule</string>
     <string name="h_Join_Now">Join Now</string>
-    <string name="h_Good_Morning">Good Morning!</string>
-    <string name="features">Features</string>
-    <string name="my_community">My Community</string>
     <string name="home">Home</string>
     <string name="profile">profile</string>
-    <string name="diary">Diary</string>
-    <string name="community">Community</string>
+    <string name="my_community">My Community</string>
     <string name="quote">Quote</string>
-    <string name="chatting">Chatting</string>
+    <string name="chat">Chat</string>
     <string name="draw">Draw</string>
     <string name="music">Music</string>
+
+    <!-- Admin -->
+    <string name="a_appointment">My Appointments</string>
+    <string name="a_boxtext">In This Meeting Discuss About Mental Health.</string>
+    <string name="a_Reschedule">Reschedule</string>
+    <string name="a_Join_Now">Join Now</string>
+    <string name="home2">Home</string>
+    <string name="profile2">profile</string>
+    <string name="chat2">Chat</string>
+    <string name="appointment">Appointment</string>
+    <string name="features">Features</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
