@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#58315A"
+            android:background="#E97068"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -128,7 +128,7 @@
                         android:id="@+id/sessionContainer"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#F16C68">
+                        android:background="#CFDAED">
 
                         <TextView
                             android:id="@+id/sessionDescription2"
@@ -147,7 +147,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                            android:backgroundTint="#B62B27"
+                            android:backgroundTint="#6885B8"
                             android:text="@string/a_Reschedule"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />

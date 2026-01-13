@@ -3,17 +3,23 @@ package com.example.healthapp
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.media.MediaPlayer
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
@@ -23,11 +29,19 @@ import com.google.android.material.navigation.NavigationView
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityHomeBinding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // 1. Enable Edge-to-Edge
+        enableEdgeToEdge()
+        
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 2. Hide System Bars (Full Screen Immersive Mode)
+        hideSystemBars()
 
         setSupportActionBar(binding.toolbar)
 
@@ -46,6 +60,25 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setupClickListeners()
     }
 
+    private fun hideSystemBars() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.setDecorFitsSystemWindows(false)
+            val controller = window.insetsController
+            if (controller != null) {
+                controller.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+                controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
+        }
+    }
+
     private fun setupClickListeners() {
         binding.rescheduleButton1.setOnClickListener {
             showToast("Reschedule button 1 clicked")
@@ -54,14 +87,46 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             showToast("Reschedule button 2 clicked")
         }
 
-        binding.happyImageView.setOnClickListener { showFeelingDialog(R.drawable.happy, "Happy", "#FFEB3B") }
-        binding.calmImageView.setOnClickListener { showFeelingDialog(R.drawable.calm, "Calm", "#81D4FA") }
-        binding.angryImageView.setOnClickListener { showFeelingDialog(R.drawable.angry, "Angry", "#EF5350") }
-        binding.sadImageView.setOnClickListener { showFeelingDialog(R.drawable.sad, "Sad", "#90CAF9") }
-        binding.excitedImageView.setOnClickListener { showFeelingDialog(R.drawable.anxious, "Anxious", "#CE93D8") }
-        binding.stressedImageView.setOnClickListener { showFeelingDialog(R.drawable.stressed, "Stressed", "#FFAB91") }
-        binding.worriedImageView.setOnClickListener { showFeelingDialog(R.drawable.tired, "Tired", "#B0BEC5") }
-        binding.relaxedImageView.setOnClickListener { showFeelingDialog(R.drawable.neutral, "Neutral", "#E0E0E0") }
+        binding.happyImageView.setOnClickListener { 
+            playSound(R.raw.pop1)
+            showFeelingDialog(R.drawable.happy, "Happy", "#FFEB3B") 
+        }
+        binding.calmImageView.setOnClickListener { 
+            playSound(R.raw.pop2)
+            showFeelingDialog(R.drawable.calm, "Calm", "#81D4FA") 
+        }
+        binding.angryImageView.setOnClickListener { 
+            playSound(R.raw.pop3)
+            showFeelingDialog(R.drawable.angry, "Angry", "#EF5350") 
+        }
+        binding.sadImageView.setOnClickListener { 
+            playSound(R.raw.pop2)
+            showFeelingDialog(R.drawable.sad, "Sad", "#90CAF9") 
+        }
+        binding.anxiousImageView.setOnClickListener {
+            playSound(R.raw.pop3)
+            showFeelingDialog(R.drawable.anxious, "Anxious", "#CE93D8") 
+        }
+        binding.stressedImageView.setOnClickListener { 
+            playSound(R.raw.pop3)
+            showFeelingDialog(R.drawable.stressed, "Stressed", "#FFAB91") 
+        }
+        binding.tiredImageView.setOnClickListener {
+            playSound(R.raw.pop3)
+            showFeelingDialog(R.drawable.tired, "Tired", "#B0BEC5") 
+        }
+        binding.neutralImageView.setOnClickListener {
+            playSound(R.raw.pop1)
+            showFeelingDialog(R.drawable.neutral, "Neutral", "#E0E0E0") 
+        }
+    }
+
+    private fun playSound(soundResId: Int) {
+        // Release previous player if any
+        mediaPlayer?.release()
+        // Create and play specific sound
+        mediaPlayer = MediaPlayer.create(this, soundResId)
+        mediaPlayer?.start()
     }
 
     private fun showFeelingDialog(imageResId: Int, feeling: String, colorHex: String) {
@@ -129,6 +194,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 
     override fun onBackPressed() {
