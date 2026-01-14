@@ -25,25 +25,28 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import com.example.healthapp.databinding.ActivityHomeBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityHomeBinding
     private var mediaPlayer: MediaPlayer? = null
+    private val auth = FirebaseAuth.getInstance()
+    private val database = FirebaseDatabase.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // 1. Enable Edge-to-Edge
         enableEdgeToEdge()
-        
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 2. Hide System Bars (Full Screen Immersive Mode)
         hideSystemBars()
-
         setSupportActionBar(binding.toolbar)
+
+        // Fetch and display real name from database
+        loadRealName()
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -58,6 +61,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setNavigationItemSelectedListener(this)
 
         setupClickListeners()
+    }
+
+    private fun loadRealName() {
+        val userId = auth.currentUser?.uid ?: return
+        database.child("Users").child(userId).child("fullName").get().addOnSuccessListener {
+            val fullName = it.value?.toString() ?: "User"
+            binding.userNameTextView.text = fullName
+        }.addOnFailureListener {
+            binding.userNameTextView.text = "Error loading name"
+        }
     }
 
     private fun hideSystemBars() {
@@ -122,9 +135,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun playSound(soundResId: Int) {
-        // Release previous player if any
         mediaPlayer?.release()
-        // Create and play specific sound
         mediaPlayer = MediaPlayer.create(this, soundResId)
         mediaPlayer?.start()
     }
