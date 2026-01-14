@@ -19,6 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#E97068"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="@string/chat"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

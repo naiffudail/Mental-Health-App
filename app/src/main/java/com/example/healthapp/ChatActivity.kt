@@ -113,13 +113,13 @@ class ChatActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> startActivity(Intent(this, HomeActivity::class.java))
-            R.id.nav_diary -> Toast.makeText(this, "Diary clicked", Toast.LENGTH_SHORT).show()
             R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
             R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
             R.id.nav_chat -> { /* Already here */ }
-            R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))
             R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))
+            R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))
             R.id.nav_draw -> startActivity(Intent(this, DrawingActivity::class.java))
+            R.id.nav_game -> startActivity(Intent(this, TicTacToeActivity::class.java))
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
