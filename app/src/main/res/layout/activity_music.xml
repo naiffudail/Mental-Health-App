@@ -137,24 +137,12 @@
 
             <ImageView
                 android:id="@+id/imageMusicCartoon"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
                 android:src="@drawable/music_cartoon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_card" />
-
-            <Button
-                android:id="@+id/buttonHomepage"
-                android:layout_width="198dp"
-                android:layout_height="56dp"
-                android:layout_marginBottom="32dp"
-                android:backgroundTint="#F16C68"
-                android:text="Homepage"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

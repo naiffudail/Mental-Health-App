@@ -94,7 +94,7 @@
         android:id="@+id/textViewLoginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="200dp"
         android:text="Already have account? Login here"
         android:textColor="#E97068"
         android:textSize="14sp"
