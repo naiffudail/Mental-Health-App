@@ -19,10 +19,6 @@ class MusicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private lateinit var binding: ActivityMusicBinding
     private var mediaPlayer: MediaPlayer? = null
     private val handler = Handler(Looper.getMainLooper())
-    
-    private val songs = listOf(R.raw.music_file, R.raw.pop1, R.raw.pop2, R.raw.pop3)
-    private val songTitles = listOf("My Little Edinburgh", "Pop Song 1", "Pop Song 2", "Pop Song 3")
-    private var currentSongIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,64 +39,66 @@ class MusicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         binding.navView.setNavigationItemSelectedListener(this)
 
-        setupMusicPlayer()
-
-    }
-
-    private fun setupMusicPlayer() {
-        // Initialize the first song but don't play it yet
-        prepareSong()
-
-        binding.buttonPlay.setOnClickListener {
-            if (mediaPlayer == null) {
-                prepareSong()
-            }
-            
-            if (mediaPlayer?.isPlaying == true) {
-                mediaPlayer?.pause()
-                binding.buttonPlay.setImageResource(android.R.drawable.ic_media_play)
+        // Initialize MediaPlayer
+        try {
+            mediaPlayer = MediaPlayer.create(this, R.raw.music_file)
+            if (mediaPlayer != null) {
+                setupSeekBar()
             } else {
-                mediaPlayer?.start()
-                binding.buttonPlay.setImageResource(android.R.drawable.ic_media_pause)
-                updateSeekBar()
+                Toast.makeText(this, "Music file not found in res/raw", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        // Play/Pause Button
+        binding.buttonPlay.setOnClickListener {
+            if (mediaPlayer?.isPlaying == true) {
+                pauseMusic()
+            } else {
+                playMusic()
             }
         }
 
-        binding.buttonNext.setOnClickListener {
-            currentSongIndex = (currentSongIndex + 1) % songs.size
-            playSong()
-        }
+        // Restart on Next/Previous since we have one file
+        binding.buttonNext.setOnClickListener { restartMusic() }
+        binding.buttonPrevious.setOnClickListener { restartMusic() }
 
-        binding.buttonPrevious.setOnClickListener {
-            currentSongIndex = if (currentSongIndex > 0) currentSongIndex - 1 else songs.size - 1
-            playSong()
+        binding.buttonHomepage.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }
-
-        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser) mediaPlayer?.seekTo(progress)
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
     }
 
-    private fun prepareSong() {
-        mediaPlayer?.stop()
-        mediaPlayer?.release()
-        
-        mediaPlayer = MediaPlayer.create(this, songs[currentSongIndex])
-        binding.textViewSongTitle.text = songTitles[currentSongIndex]
-        binding.seekBar.max = mediaPlayer?.duration ?: 0
-        binding.seekBar.progress = 0
-        binding.buttonPlay.setImageResource(android.R.drawable.ic_media_play)
-    }
-
-    private fun playSong() {
-        prepareSong()
+    private fun playMusic() {
         mediaPlayer?.start()
         binding.buttonPlay.setImageResource(android.R.drawable.ic_media_pause)
         updateSeekBar()
+    }
+
+    private fun pauseMusic() {
+        mediaPlayer?.pause()
+        binding.buttonPlay.setImageResource(android.R.drawable.ic_media_play)
+    }
+
+    private fun restartMusic() {
+        mediaPlayer?.seekTo(0)
+        playMusic()
+    }
+
+    private fun setupSeekBar() {
+        mediaPlayer?.let {
+            binding.seekBar.max = it.duration
+            binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    if (fromUser) {
+                        it.seekTo(progress)
+                    }
+                }
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
+        }
     }
 
     private fun updateSeekBar() {
@@ -128,17 +126,18 @@ class MusicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         return true
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayer?.release()
-        handler.removeCallbacksAndMessages(null)
-    }
-
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
+        handler.removeCallbacksAndMessages(null)
     }
 }

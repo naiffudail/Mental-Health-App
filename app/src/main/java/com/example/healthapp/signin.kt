@@ -39,15 +39,14 @@ class signin : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val userId = auth.currentUser?.uid
                         if (userId != null) {
-                            // Check user role in database
+                            // Fetch user data to check role
                             database.reference.child("Users").child(userId).get()
                                 .addOnSuccessListener { snapshot ->
                                     val role = snapshot.child("role").value.toString()
                                     
                                     if (role == "Admin") {
                                         Toast.makeText(this, "Welcome Admin", Toast.LENGTH_SHORT).show()
-                                        // Redirect to Admin specific screen if you have one
-                                        startActivity(Intent(this, HomeActivity::class.java))
+                                        startActivity(Intent(this, Home2Activity::class.java))
                                     } else {
                                         Toast.makeText(this, "Welcome User", Toast.LENGTH_SHORT).show()
                                         startActivity(Intent(this, HomeActivity::class.java))

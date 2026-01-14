@@ -16,6 +16,9 @@
             android:name=".TicTacToeActivity"
             android:exported="true" />
         <activity
+            android:name=".Home2Activity"
+            android:exported="false" />
+        <activity
             android:name=".SearchFriendActivity"
             android:exported="false" />
         <activity
@@ -41,9 +44,6 @@
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity2"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

@@ -33,10 +33,10 @@ class signup : AppCompatActivity() {
         val loginLink = findViewById<TextView>(R.id.textViewLoginLink)
 
         signupButton.setOnClickListener {
-            val fullName = fullNameEditText.text.toString()
-            val phone = phoneEditText.text.toString()
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
+            val fullName = fullNameEditText.text.toString().trim()
+            val phone = phoneEditText.text.toString().trim()
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
 
             if (fullName.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
@@ -47,14 +47,26 @@ class signup : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val userId = auth.currentUser?.uid
-                        val user = User(fullName, phone, email, role)
+                        
+                        val user = User(
+                            fullName = fullName,
+                            phoneNumber = phone,
+                            email = email,
+                            role = role,
+                            uid = userId
+                        )
 
                         if (userId != null) {
                             database.reference.child("Users").child(userId).setValue(user)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Registration as $role successful", Toast.LENGTH_SHORT).show()
-                                    val intent = Intent(this, signin::class.java)
-                                    startActivity(intent)
+                                    
+                                    // Separated redirection based on role after signup
+                                    if (role == "Admin") {
+                                        startActivity(Intent(this, Home2Activity::class.java))
+                                    } else {
+                                        startActivity(Intent(this, HomeActivity::class.java))
+                                    }
                                     finish()
                                 }
                                 .addOnFailureListener {
