@@ -4,83 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#F8F9FD"
     tools:context=".SearchFriendActivity">
 
-    <!-- Toolbar -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbarSearch"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarCard"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingHorizontal="16dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="#E97068"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/btnBackSearch"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/backbutton"
-            app:tint="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Friends"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/btnBackSearch"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/backbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/francois_one"
+                android:text="ADD FRIENDS"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:letterSpacing="0.05"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Search Input -->
-    <LinearLayout
-        android:id="@+id/searchArea"
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@drawable/chat_input_bg"
-        android:orientation="horizontal"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbarSearch">
+        app:cardCornerRadius="28dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#15E97068"
+        app:strokeWidth="1dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCard">
 
-        <EditText
-            android:id="@+id/etSearchUsername"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:hint="Search by full name..."
-            android:inputType="textPersonName"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
 
-        <ImageButton
-            android:id="@+id/btnSearchAction"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_search"
-            app:tint="#3D86FB" />
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etSearchUsername"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Search by full name..."
+                android:inputType="textPersonName"
+                android:textColor="#58315A"
+                android:textSize="15sp" />
 
-    <!-- Search Result -->
-    <androidx.cardview.widget.CardView
+            <ImageButton
+                android:id="@+id/btnSearchAction"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="#E97068" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
         android:visibility="gone"
-        app:cardBackgroundColor="#1A1A1A"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@id/searchArea">
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:strokeColor="#15E97068"
+        app:strokeWidth="1dp"
+        app:layout_constraintTop_toBottomOf="@id/searchCard"
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,10 +108,12 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivResultProfile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/user"
-                app:shapeAppearanceOverlay="@style/CircleImage" />
+                app:shapeAppearanceOverlay="@style/CircleImage"
+                app:strokeColor="#E97068"
+                app:strokeWidth="2dp" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -107,10 +126,10 @@
                     android:id="@+id/tvResultName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/francois_one"
                     android:text="User Name"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvResultEmail"
@@ -121,28 +140,47 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAddAction"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#3D86FB"
                 android:text="Add"
                 android:textAllCaps="false"
-                android:textSize="12sp" />
+                android:textColor="#E97068"
+                app:backgroundTint="#FDF0EF"
+                app:cornerRadius="12dp" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/tvNoResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="No user found"
-        android:textColor="#828282"
+        android:gravity="center"
+        android:orientation="vertical"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchArea" />
+        app:layout_constraintTop_toBottomOf="@id/searchCard"
+        app:layout_constraintVertical_bias="0.3">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.3"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="#828282" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="No user found"
+            android:textColor="#828282"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

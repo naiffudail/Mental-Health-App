@@ -63,11 +63,6 @@ class MusicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         // Restart on Next/Previous since we have one file
         binding.buttonNext.setOnClickListener { restartMusic() }
         binding.buttonPrevious.setOnClickListener { restartMusic() }
-
-        binding.buttonHomepage.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }
     }
 
     private fun playMusic() {

@@ -31,80 +31,167 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/francois_one"
-                    android:text="Quotes For You"
+                    android:text="Daily Inspiration"
                     android:textAllCaps="true"
                     android:textColor="#58315A"
-                    android:textSize="24sp" />
+                    android:textSize="26sp"
+                    android:letterSpacing="0.05" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp">
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#1A58315A">
 
-                    <ImageView
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/quote1" />
+                        android:layout_height="wrap_content">
 
+                        <ImageView
+                            android:id="@+id/imgQuote1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/quote1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/btnShare1"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/circle_background_white"
+                            android:elevation="4dp"
+                            android:src="@android:drawable/ic_menu_share"
+                            app:tint="#E97068"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp">
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#1A58315A">
 
-                    <ImageView
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/quote2" />
+                        android:layout_height="wrap_content">
 
+                        <ImageView
+                            android:id="@+id/imgQuote2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/quote2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/btnShare2"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/circle_background_white"
+                            android:elevation="4dp"
+                            android:src="@android:drawable/ic_menu_share"
+                            app:tint="#E97068"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp">
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#1A58315A">
 
-                    <ImageView
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/quote3" />
+                        android:layout_height="wrap_content">
 
+                        <ImageView
+                            android:id="@+id/imgQuote3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/quote3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/btnShare3"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/circle_background_white"
+                            android:elevation="4dp"
+                            android:src="@android:drawable/ic_menu_share"
+                            app:tint="#E97068"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp">
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#1A58315A">
 
-                    <ImageView
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/quote4" />
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgQuote4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/quote4"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/btnShare4"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/circle_background_white"
+                            android:elevation="4dp"
+                            android:src="@android:drawable/ic_menu_share"
+                            app:tint="#E97068"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>

@@ -28,115 +28,191 @@
             android:background="@drawable/background"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/statusTextView"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/statusCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="#FDF0EF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeColor="#E97068"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/statusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="12dp"
+                    android:fontFamily="@font/francois_one"
+                    android:text="Your Turn (X)"
+                    android:textColor="#58315A"
+                    android:textSize="22sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/boardCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/francois_one"
-                android:text="Your Turn (X)"
-                android:textColor="#58315A"
-                android:textSize="24sp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/statusCard">
 
-            <GridLayout
-                android:id="@+id/gridLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:columnCount="3"
-                android:rowCount="3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/statusTextView">
+                <GridLayout
+                    android:id="@+id/gridLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:columnCount="3"
+                    android:rowCount="3"
+                    android:background="#FFFFFF">
 
-                <Button
-                    android:id="@+id/button0"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp"
-                    tools:text="X" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button0"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp"
+                        tools:text="X" />
 
-                <Button
-                    android:id="@+id/button1"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button1"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button2"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button2"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button3"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button3"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button4"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button4"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button5"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button5"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button6"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button6"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button7"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button7"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-                <Button
-                    android:id="@+id/button8"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="4dp"
-                    android:textSize="32sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button8"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:layout_margin="4dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:textSize="36sp"
+                        app:cornerRadius="16dp"
+                        app:strokeColor="#E97068"
+                        app:strokeWidth="2dp" />
 
-            </GridLayout>
+                </GridLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/resetButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_width="220dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="40dp"
                 android:backgroundTint="#E97068"
+                android:fontFamily="@font/francois_one"
                 android:text="Reset Game"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                app:cornerRadius="32dp"
+                app:elevation="6dp"
+                app:icon="@android:drawable/ic_menu_revert"
+                app:iconGravity="textStart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gridLayout" />
+                app:layout_constraintTop_toBottomOf="@id/boardCard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

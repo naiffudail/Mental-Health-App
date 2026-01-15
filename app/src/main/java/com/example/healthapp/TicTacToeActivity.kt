@@ -3,6 +3,7 @@ package com.example.healthapp
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
@@ -93,7 +94,13 @@ class TicTacToeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
 
         if (checkWin(player, board)) {
-            binding.statusTextView.text = if (player == "X") "You Win!" else "You Lose!"
+            if (player == "X") {
+                binding.statusTextView.text = "You Win!"
+                playWinSound()
+            } else {
+                binding.statusTextView.text = "You Lose!"
+                playLoseSound()
+            }
             gameActive = false
         } else if (board.all { it != null }) {
             binding.statusTextView.text = "It's a Draw!"
@@ -179,6 +186,26 @@ class TicTacToeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             button.setBackgroundColor(Color.TRANSPARENT)
             // Optional: Add a subtle border if you want them visible while empty
             button.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0) 
+        }
+    }
+
+    private fun playWinSound() {
+        try {
+            val mediaPlayer = MediaPlayer.create(this, R.raw.win_sound)
+            mediaPlayer.setOnCompletionListener { it.release() }
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun playLoseSound() {
+        try {
+            val mediaPlayer = MediaPlayer.create(this, R.raw.lose_sound)
+            mediaPlayer.setOnCompletionListener { it.release() }
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -53,14 +54,14 @@ class ChatActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Get Friend Name from Intent if coming from Contacts
         val friendName = intent.getStringExtra("FRIEND_NAME")
         if (friendName != null) {
-            binding.chatUserName.text = friendName
+            binding.toolbar.findViewById<android.widget.TextView>(R.id.chatUserName).text = friendName
         } else {
             // Otherwise show current user name
             val userId = auth.currentUser?.uid
             if (userId != null) {
                 database.child("Users").child(userId).child("fullName").get().addOnSuccessListener {
                     currentUserName = it.value.toString()
-                    binding.chatUserName.text = currentUserName
+                    binding.toolbar.findViewById<android.widget.TextView>(R.id.chatUserName).text = currentUserName
                 }
             }
         }
@@ -88,7 +89,7 @@ class ChatActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         })
 
         // Go to Contacts List
-        binding.chatHeader.findViewById<android.view.View>(R.id.btnGoToContacts).setOnClickListener {
+        binding.toolbar.findViewById<View>(R.id.btnGoToContacts).setOnClickListener {
             startActivity(Intent(this, ContactsActivity::class.java))
         }
 

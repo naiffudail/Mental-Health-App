@@ -4,56 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-        android:background="#FFFFFF"
+    android:background="#F8F9FD"
     tools:context=".ContactsActivity">
 
-    <!-- Custom Toolbar -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbarContacts"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarCard"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingHorizontal="16dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="#E97068"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/btnMenu"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/home"
-            app:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contacts"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/btnMenu"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/backbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/btnSearchFriend"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@android:drawable/ic_menu_search"
-            app:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONTACTS"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:letterSpacing="0.05"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/btnSearchFriend"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@android:drawable/ic_menu_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#FFFFFF" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarContacts">
+        app:layout_constraintTop_toBottomOf="@id/toolbarCard">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,220 +69,182 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Top Profile Item (Example) -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#15E97068"
+                app:strokeWidth="1dp">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="2dp"
-                    android:src="@drawable/user"
-                    app:shapeAppearanceOverlay="@style/CircleImage"
-                    app:strokeColor="#FFC107"
-                    app:strokeWidth="2dp" />
-
-                <TextView
-                    android:id="@+id/tvCurrentUserName"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="Malek Muzahidhusaln"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/ic_media_play"
-                    app:tint="#828282" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-            <!-- My Groups -->
-            <LinearLayout
-                android:id="@+id/btnMyGroups"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:src="@drawable/user"
+                            app:shapeAppearanceOverlay="@style/CircleImage"
+                            app:strokeColor="#E97068"
+                            app:strokeWidth="2dp" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="#00FF00"
-                    android:padding="12dp"
-                    android:src="@drawable/user"
-                    app:shapeAppearanceOverlay="@style/CircleImage"
-                    app:tint="#000000" />
+                        <TextView
+                            android:id="@+id/tvCurrentUserName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/francois_one"
+                            android:text="Malek Muzahidhusaln"
+                            android:textColor="#000000"
+                            android:textSize="17sp" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="My Groups"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@android:drawable/ic_media_play"
+                            app:tint="#BDBDBD" />
+                    </LinearLayout>
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/ic_media_play"
-                    app:tint="#828282" />
-            </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="#F0F0F0"/>
 
-            <!-- Add New Friends -->
-            <LinearLayout
-                android:id="@+id/btnAddFriend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <LinearLayout
+                        android:id="@+id/btnMyGroups"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="#3D86FB"
-                    android:padding="12dp"
-                    android:src="@android:drawable/ic_menu_add"
-                    app:shapeAppearanceOverlay="@style/CircleImage"
-                    app:tint="#000000" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:background="#E8F5E9"
+                            android:padding="14dp"
+                            android:src="@android:drawable/ic_menu_slideshow"
+                            app:shapeAppearanceOverlay="@style/CircleImage"
+                            app:tint="#4CAF50" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="Add New Friends"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:text="My Groups"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/ic_media_play"
-                    app:tint="#828282" />
-            </LinearLayout>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@android:drawable/ic_media_play"
+                            app:tint="#BDBDBD" />
+                    </LinearLayout>
 
-            <!-- Contacts List Group A -->
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="#F0F0F0"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnAddFriend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:background="#E3F2FD"
+                            android:padding="14dp"
+                            android:src="@android:drawable/ic_menu_add"
+                            app:shapeAppearanceOverlay="@style/CircleImage"
+                            app:tint="#3D86FB" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:text="Add New Friends"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@android:drawable/ic_media_play"
+                            app:tint="#BDBDBD" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="8dp"
                 android:text="A"
-                android:textColor="#828282"
-                android:textSize="12sp"
+                android:textColor="#E97068"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvContacts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_contact" />
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Side Alphabet Sidebar -->
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="28dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardBackgroundColor="#CCFFFFFF"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#10000000"
+        app:strokeWidth="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            style="@style/AlphabetText"
-            android:text="A" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="B" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="C" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="D" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="E" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="F" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="G" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="H" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="I" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="J" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="K" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="L" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="M" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="N" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="O" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="P" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="Q" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="R" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="S" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="T" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="U" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="V" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="W" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="X" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="Y" />
-        <TextView
-            style="@style/AlphabetText"
-            android:text="Z" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="12dp"
+            android:gravity="center">
 
-    </LinearLayout>
+            <TextView style="@style/AlphabetText" android:text="A" android:textColor="#E97068" />
+            <TextView style="@style/AlphabetText" android:text="B" />
+            <TextView style="@style/AlphabetText" android:text="C" />
+            <TextView style="@style/AlphabetText" android:text="D" />
+            <TextView style="@style/AlphabetText" android:text="E" />
+            <TextView style="@style/AlphabetText" android:text="F" />
+            <TextView style="@style/AlphabetText" android:text="G" />
+            <TextView style="@style/AlphabetText" android:text="H" />
+            <TextView style="@style/AlphabetText" android:text="Z" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

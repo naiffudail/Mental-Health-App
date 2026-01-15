@@ -3,7 +3,6 @@ package com.example.healthapp
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -32,6 +31,26 @@ class QuotesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         toggle.syncState()
 
         binding.navView.setNavigationItemSelectedListener(this)
+
+        // Share buttons setup
+        setupShareButtons()
+    }
+
+    private fun setupShareButtons() {
+        binding.btnShare1.setOnClickListener {
+            shareQuote("Check out this inspiring quote from MindCare!")
+        }
+
+        binding.btnShare2.setOnClickListener {
+            shareQuote("Check out this inspiring quote from MindCare!")
+        }
+    }
+
+    private fun shareQuote(message: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, message)
+        startActivity(Intent.createChooser(intent, "Share via"))
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
