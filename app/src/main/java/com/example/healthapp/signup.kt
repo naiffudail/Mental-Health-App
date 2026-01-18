@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +32,11 @@ class signup : AppCompatActivity() {
         val passwordEditText = findViewById<EditText>(R.id.editTextTextPassword2)
         val signupButton = findViewById<Button>(R.id.button4)
         val loginLink = findViewById<TextView>(R.id.textViewLoginLink)
+        val backButton = findViewById<ImageView>(R.id.btnMenu)
+
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
 
         signupButton.setOnClickListener {
             val fullName = fullNameEditText.text.toString().trim()

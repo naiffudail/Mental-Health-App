@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -24,6 +25,13 @@ class signin : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.editTextTextEmailAddress)
         val passwordEditText = findViewById<EditText>(R.id.editTextTextPassword2)
         val signinButton = findViewById<Button>(R.id.button5)
+        val backButton = findViewById<ImageView>(R.id.btnBack)
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, signup::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         signinButton.setOnClickListener {
             val email = emailEditText.text.toString()

@@ -2,6 +2,7 @@ package com.example.healthapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -51,6 +52,26 @@ class Home2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.home_toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_logout -> {
+                auth.signOut()
+                Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> { /* Already here */ }
@@ -59,6 +80,7 @@ class Home2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))
             R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))
             R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))
+            R.id.nav_appointment -> startActivity(Intent(this, AppointmentActivity::class.java))
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true

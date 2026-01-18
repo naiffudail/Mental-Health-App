@@ -1,72 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
     android:layout_marginVertical="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:strokeColor="#15E97068"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="16dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/doctorImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="centerCrop"
-            android:src="@android:drawable/sym_def_app_icon"
+            android:src="@drawable/user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleImage"
+            app:strokeColor="#15E97068"
+            app:strokeWidth="2dp" />
 
-        <TextView
-            android:id="@+id/doctorName"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Dr. Alexander Poppins"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/chatIcon"
             app:layout_constraintStart_toEndOf="@+id/doctorImage"
-            app:layout_constraintTop_toTopOf="@+id/doctorImage" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/doctorSpecialty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Physician"
-            android:textColor="#808080"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/doctorName"
-            app:layout_constraintTop_toBottomOf="@+id/doctorName" />
+            <TextView
+                android:id="@+id/doctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/francois_one"
+                android:text="Dr. Alexander Poppins"
+                android:textColor="#58315A"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/doctorDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Treating gloria for thyroid"
-            android:textColor="#5BB9B9"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/chatIcon"
-            app:layout_constraintStart_toStartOf="@+id/doctorName"
-            app:layout_constraintTop_toBottomOf="@+id/doctorSpecialty" />
+            <TextView
+                android:id="@+id/doctorSpecialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Physician"
+                android:textColor="#828282"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-        <ImageView
+            <TextView
+                android:id="@+id/doctorDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Treating gloria for thyroid"
+                android:textColor="#E97068"
+                android:textSize="12sp"
+                android:alpha="0.8" />
+        </LinearLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/chatIcon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/chat_icon_bg"
-            android:padding="6dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#FDF0EF"
+            android:padding="10dp"
             android:src="@android:drawable/stat_notify_chat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleImage"
+            app:tint="#E97068" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
