@@ -177,11 +177,11 @@
             android:orientation="horizontal"
             android:paddingHorizontal="24dp">
             
-            <include layout="@layout/item_date_picker" />
             <include layout="@layout/item_date_picker_selected" />
-            <include layout="@layout/item_date_picker" />
-            <include layout="@layout/item_date_picker" />
-            <include layout="@layout/item_date_picker" />
+            <include layout="@layout/item_date_picker_selected" />
+            <include layout="@layout/item_date_picker_selected" />
+            <include layout="@layout/item_date_picker_selected" />
+            <include layout="@layout/item_date_picker_selected" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -213,9 +213,9 @@
             android:orientation="horizontal"
             android:paddingHorizontal="24dp">
 
-            <include layout="@layout/item_time_picker" />
             <include layout="@layout/item_time_picker_selected" />
-            <include layout="@layout/item_time_picker" />
+            <include layout="@layout/item_time_picker_selected" />
+            <include layout="@layout/item_time_picker_selected" />
         </LinearLayout>
     </HorizontalScrollView>
 
