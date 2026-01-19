@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -26,11 +27,17 @@ class signin : AppCompatActivity() {
         val passwordEditText = findViewById<EditText>(R.id.editTextTextPassword2)
         val signinButton = findViewById<Button>(R.id.button5)
         val backButton = findViewById<ImageView>(R.id.btnBack)
+        val forgotPasswordTextView = findViewById<TextView>(R.id.textView2)
 
         backButton.setOnClickListener {
             val intent = Intent(this, signup::class.java)
             startActivity(intent)
             finish()
+        }
+
+        forgotPasswordTextView.setOnClickListener {
+            val intent = Intent(this, ResetPasswordRequestActivity::class.java)
+            startActivity(intent)
         }
 
         signinButton.setOnClickListener {
