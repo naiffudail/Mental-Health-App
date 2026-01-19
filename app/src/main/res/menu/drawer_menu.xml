@@ -11,6 +11,10 @@
 
     <group android:id="@+id/features_group">
         <item
+            android:id="@+id/nav_appointment"
+            android:icon="@android:drawable/ic_menu_today"
+            android:title="Appointment" />
+        <item
             android:id="@+id/nav_community"
             android:icon="@drawable/community"
             android:title="@string/my_community" />

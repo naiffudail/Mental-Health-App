@@ -38,23 +38,31 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
                 val intent = Intent(this, MusicActivity::class.java)
                 startActivity(intent)
             }
+            R.id.nav_appointment -> {
+                val intent = Intent(this, AppointmentActivity::class.java)
+                startActivity(intent)
+            }
             R.id.nav_home -> {
-                // TODO: Handle home click
+                // Already on Home
             }
             R.id.nav_diary -> {
                 // TODO: Handle diary click
             }
             R.id.nav_profile -> {
-                // TODO: Handle profile click
+                val intent = Intent(this, UpdateProfileActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_community -> {
-                // TODO: Handle community click
+                val intent = Intent(this, CommunityActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_chat -> {
-                // TODO: Handle chat click
+                val intent = Intent(this, ChatActivity::class.java)
+                startActivity(intent)
             }
-            R.id.nav_progress -> {
-                // TODO: Handle progress click
+            R.id.nav_quotes -> {
+                val intent = Intent(this, QuotesActivity::class.java)
+                startActivity(intent)
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
