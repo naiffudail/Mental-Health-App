@@ -40,6 +40,17 @@ class Home2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         toggle.syncState()
 
         binding.navView.setNavigationItemSelectedListener(this)
+
+        // Set click listeners for Reschedule buttons
+        binding.rescheduleButton1.setOnClickListener {
+            val intent = Intent(this, AppointmentDetailActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.rescheduleButton2.setOnClickListener {
+            val intent = Intent(this, AppointmentDetailActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadRealName() {
