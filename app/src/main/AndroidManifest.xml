@@ -13,6 +13,12 @@
         android:theme="@style/Theme.HealthApp"
         tools:targetApi="31">
         <activity
+            android:name=".UserAppointmentListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddTherapistActivity"
+            android:exported="false" />
+        <activity
             android:name=".AppointmentDetailActivity"
             android:exported="false" />
         <activity

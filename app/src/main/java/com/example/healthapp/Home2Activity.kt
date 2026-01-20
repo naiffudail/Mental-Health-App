@@ -51,6 +51,17 @@ class Home2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             val intent = Intent(this, AppointmentDetailActivity::class.java)
             startActivity(intent)
         }
+
+        // Set click listeners for Add Therapist buttons
+        binding.joinNowButton1.setOnClickListener {
+            val intent = Intent(this, AddTherapistActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.joinNowButton2.setOnClickListener {
+            val intent = Intent(this, AddTherapistActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadRealName() {
