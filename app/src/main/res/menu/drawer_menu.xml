@@ -15,10 +15,6 @@
             android:icon="@android:drawable/ic_menu_today"
             android:title="@string/appointment" />
         <item
-            android:id="@+id/nav_community"
-            android:icon="@drawable/community"
-            android:title="@string/my_community" />
-        <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/chat"
             android:title="@string/chat" />

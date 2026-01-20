@@ -11,10 +11,6 @@
 
     <group android:id="@+id/features_group">
         <item
-            android:id="@+id/nav_chat"
-            android:icon="@drawable/chat"
-            android:title="@string/chat2" />
-        <item
             android:id="@+id/nav_appointment"
             android:icon="@drawable/chat"
             android:title="@string/appointment" />
