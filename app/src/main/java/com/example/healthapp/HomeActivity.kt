@@ -93,13 +93,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setupClickListeners() {
-        binding.rescheduleButton1.setOnClickListener {
-            showToast("Reschedule button 1 clicked")
-        }
-        binding.rescheduleButton2.setOnClickListener {
-            showToast("Reschedule button 2 clicked")
-        }
-
         binding.happyImageView.setOnClickListener { 
             playSound(R.raw.pop1)
             showFeelingDialog(R.drawable.happy, "Happy", "#FFEB3B") 
@@ -131,6 +124,20 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.neutralImageView.setOnClickListener {
             playSound(R.raw.pop1)
             showFeelingDialog(R.drawable.neutral, "Neutral", "#E0E0E0") 
+        }
+
+        // Feature Card Listeners
+        binding.cardMusic.setOnClickListener {
+            startActivity(Intent(this, MusicActivity::class.java))
+        }
+        binding.cardQuotes.setOnClickListener {
+            startActivity(Intent(this, QuotesActivity::class.java))
+        }
+        binding.cardDrawing.setOnClickListener {
+            startActivity(Intent(this, DrawingActivity::class.java))
+        }
+        binding.cardTicTacToe.setOnClickListener {
+            startActivity(Intent(this, TicTacToeActivity::class.java))
         }
     }
 
@@ -210,12 +217,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> { /* Already here */ }
             R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
-<<<<<<< HEAD
             R.id.nav_appointment -> startActivity(Intent(this, UserAppointmentListActivity::class.java))
-            R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
-=======
-            R.id.nav_appointment -> startActivity(Intent(this, AppointmentActivity::class.java))
->>>>>>> 85da26e04cc31f3f793439392a38d9220f038733
             R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))
             R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))
             R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))

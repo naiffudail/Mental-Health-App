@@ -20,6 +20,7 @@ class AppointmentDetailActivity : AppCompatActivity() {
     private val userList = mutableListOf<User>()
     private val userNames = mutableListOf<String>()
     private lateinit var adapter: ArrayAdapter<String>
+    private var selectedUserIndex = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +31,7 @@ class AppointmentDetailActivity : AppCompatActivity() {
         loadUsers()
 
         binding.menuButton.setOnClickListener {
-            onBackPressed()
+            finish()
         }
 
         binding.etSelectedDate.setOnClickListener {
@@ -49,7 +50,11 @@ class AppointmentDetailActivity : AppCompatActivity() {
     private fun setupSpinner() {
         adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, userNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.patientSpinner.adapter = adapter
+        binding.patientSpinner.setAdapter(adapter)
+        
+        binding.patientSpinner.setOnItemClickListener { _, _, position, _ ->
+            selectedUserIndex = position
+        }
     }
 
     private fun loadUsers() {
@@ -60,7 +65,6 @@ class AppointmentDetailActivity : AppCompatActivity() {
                 for (userSnapshot in snapshot.children) {
                     val user = userSnapshot.getValue(User::class.java)
                     if (user != null) {
-                        // Ensure we use the database key as the UID if it's missing in the object
                         val finalUser = user.copy(uid = userSnapshot.key)
                         userList.add(finalUser)
                         userNames.add(user.fullName ?: "Unknown")
@@ -97,7 +101,7 @@ class AppointmentDetailActivity : AppCompatActivity() {
             { _, hourOfDay, minute ->
                 val amPm = if (hourOfDay < 12) "AM" else "PM"
                 val hour = if (hourOfDay % 12 == 0) 12 else hourOfDay % 12
-                val selectedTime = String.format("%02d:%02d %s", hour, minute, amPm)
+                val selectedTime = String.format(Locale.getDefault(), "%02d:%02d %s", hour, minute, amPm)
                 binding.etSelectedTime.setText(selectedTime)
             },
             calendar.get(Calendar.HOUR_OF_DAY),
@@ -108,7 +112,6 @@ class AppointmentDetailActivity : AppCompatActivity() {
     }
 
     private fun bookAppointment() {
-        val selectedUserIndex = binding.patientSpinner.selectedItemPosition
         if (selectedUserIndex == -1 || userList.isEmpty()) {
             Toast.makeText(this, "Please select a patient", Toast.LENGTH_SHORT).show()
             return
@@ -140,7 +143,6 @@ class AppointmentDetailActivity : AppCompatActivity() {
                 finish()
             }
             .addOnFailureListener {
-                // If it fails here, it is definitely a permission issue in Firebase Rules
                 Toast.makeText(this, "Error: ${it.message}", Toast.LENGTH_LONG).show()
             }
     }

@@ -19,10 +19,7 @@
     <string name="h_stressed">Stressed</string>
     <string name="h_tired">Tired</string>
     <string name="h_neutral">Neutral</string>
-    <string name="h_ses">Sessions</string>
-    <string name="h_boxtext">In This Meeting Discuss About Mental Health.</string>
-    <string name="h_Reschedule">Reschedule</string>
-    <string name="h_Join_Now">Join Now</string>
+    <string name="h_explore">Explore</string>
     <string name="home">Home</string>
     <string name="profile">profile</string>
     <string name="quote">Quote</string>
@@ -34,7 +31,7 @@
     <!-- Admin -->
     <string name="a_appointment">My Appointments</string>
     <string name="a_boxtext">In This Meeting Discuss About Mental Health.</string>
-    <string name="a_Reschedule">Reschedule</string>
+    <string name="a_Reschedule">Schedule</string>
     <string name="a_Join_Now">Add Therapist</string>
     <string name="home2">Home</string>
     <string name="profile2">profile</string>

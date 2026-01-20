@@ -55,8 +55,8 @@ class AddTherapistActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Toast.makeText(this, "Therapist saved successfully!", Toast.LENGTH_SHORT).show()
                 // Optional: Clear fields after saving
-                binding.etTherapistFullName.text.clear()
-                binding.etCertificateId.text.clear()
+                binding.etTherapistFullName.text?.clear()
+                binding.etCertificateId.text?.clear()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to save: ${it.message}", Toast.LENGTH_SHORT).show()
