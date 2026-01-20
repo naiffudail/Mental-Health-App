@@ -210,8 +210,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> { /* Already here */ }
             R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
+<<<<<<< HEAD
             R.id.nav_appointment -> startActivity(Intent(this, UserAppointmentListActivity::class.java))
             R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
+=======
+            R.id.nav_appointment -> startActivity(Intent(this, AppointmentActivity::class.java))
+>>>>>>> 85da26e04cc31f3f793439392a38d9220f038733
             R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))
             R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))
             R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))

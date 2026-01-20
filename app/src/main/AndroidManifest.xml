@@ -55,9 +55,6 @@
             android:name=".QuotesActivity"
             android:exported="true" />
         <activity
-            android:name=".CommunityActivity"
-            android:exported="false" />
-        <activity
             android:name=".UpdateProfileActivity"
             android:exported="false" />
         <activity

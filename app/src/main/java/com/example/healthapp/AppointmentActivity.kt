@@ -167,8 +167,6 @@ class AppointmentActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         when (item.itemId) {
             R.id.nav_home -> startActivity(Intent(this, Home2Activity::class.java))
             R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
-            R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
-            R.id.nav_chat -> startActivity(Intent(this, ChatActivity::class.java))
             R.id.nav_quotes -> startActivity(Intent(this, QuotesActivity::class.java))
             R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))
             R.id.nav_appointment -> { /* Already here */ }

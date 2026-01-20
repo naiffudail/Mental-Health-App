@@ -52,10 +52,6 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
                 val intent = Intent(this, UpdateProfileActivity::class.java)
                 startActivity(intent)
             }
-            R.id.nav_community -> {
-                val intent = Intent(this, CommunityActivity::class.java)
-                startActivity(intent)
-            }
             R.id.nav_chat -> {
                 val intent = Intent(this, ChatActivity::class.java)
                 startActivity(intent)
