@@ -115,6 +115,7 @@ class ChatActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> startActivity(Intent(this, HomeActivity::class.java))
             R.id.nav_profile -> startActivity(Intent(this, UpdateProfileActivity::class.java))
+            R.id.nav_appointment -> startActivity(Intent(this, AppointmentActivity::class.java))
             R.id.nav_community -> startActivity(Intent(this, CommunityActivity::class.java))
             R.id.nav_chat -> { /* Already here */ }
             R.id.nav_music -> startActivity(Intent(this, MusicActivity::class.java))

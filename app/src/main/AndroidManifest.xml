@@ -16,12 +16,6 @@
             android:name=".ResetPasswordRequestActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ChangePasswordActivity"
-            android:exported="false" />
-        <activity
             android:name=".AppointmentActivity"
             android:exported="true" />
         <activity
